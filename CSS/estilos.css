@@ -2,12 +2,15 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 header {
-    background-color: #e0f7fa; /* Light cyan */
+    background-color: #e0f7fa;
+    /* Light cyan */
     padding: 20px;
     text-align: center;
+    margin-bottom: 2em;
 }
 
 nav ul {
@@ -24,29 +27,89 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #00796b; /* Teal */
+    color: #00796b;
+    /* Teal */
 }
 
 main {
     padding: 20px;
 }
+
 .pet-cards-container {
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: center;
 }
+/* Carrusel de imágenes */
+.carrousel {
+    width: 90%;
+    max-width: 120em;
+    padding: 2em;
+    margin: auto; /* Centra el carrusel */
+    border: 1px solid rgba(177, 174, 174, 0.479);
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    background-color: bisque;
+}
 
+.carrousel .grande {
+    width: 200%; /* Doble el ancho para mostrar imágenes */
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2em;
+    transition: transform 0.5s ease; /* Suaviza la transición */
+    transform: translateX(0%);
+    gap: 6em;
+}
 
+.carrousel .img {
+    flex: 1;
+    max-width: calc(100% / 2 - 7em); /* Ajuste dinámico según el número de imágenes */
+    min-height: 10vh;
+    margin: 0 .65%; /* Espaciado lateral */
+    box-sizing: border-box; /* Asegura que el padding se incluya en el tamaño total */
+}
+
+.carrousel .puntos {
+    width: 100%;
+    padding: .4em;
+    margin: 1em 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrousel .punto {
+    width: 2em;
+    height: 2em;
+    margin: 1em;
+    background-color: #00796b;
+    border-radius: 50%;
+    cursor: pointer; 
+    transition: background-color 0.3s ease; /* Suaviza el cambio de color */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.carrousel .punto.activo {
+    opacity: 1;
+    background-color: aqua;
+}
+/*Fin de carrusel*/
 .pet-card {
-    border: 1px solid #b2dfdb; /* Light teal */
+    border: 1px solid #b2dfdb;
+    /* Light teal */
     margin: 10px;
     padding: 10px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    flex: 1 1 200px;           /* Grow and shrink with a minimum width */
-    max-width: 300px;          /* Limit the maximum width */
-    
+    flex: 1 1 200px;
+    /* Grow and shrink with a minimum width */
+    max-width: 300px;
+    /* Limit the maximum width */
+
 }
 
 .pet-card img {
@@ -54,7 +117,8 @@ main {
     height: auto;
 }
 
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -69,12 +133,12 @@ main {
 }
 
 footer {
-    background-color: #e0f7fa; /* Light cyan */
+    background-color: #e0f7fa;
+    /* Light cyan */
     padding: 20px;
     text-align: center;
 }
-
-/* From Uiverse.io by nikk7007 */ 
+/* Estilo de boton */
 .btn {
     --color: #00A97F;
     --color2: rgb(10, 25, 30);
@@ -92,9 +156,10 @@ footer {
     font-family: 'Roboto', 'Segoe UI', sans-serif;
     text-transform: uppercase;
     color: var(--color);
-   }
-   
-   .btn::after, .btn::before {
+}
+
+.btn::after,
+.btn::before {
     content: '';
     display: block;
     height: 100%;
@@ -106,27 +171,28 @@ footer {
     z-index: -1;
     transition: .5s ease-out;
     background-color: var(--color);
-   }
-   
-   .btn::before {
+}
+
+.btn::before {
     top: -50%;
     left: -25%;
     transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
-   }
-   
-   .btn:hover::before {
+}
+
+.btn:hover::before {
     transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
-   }
-   
-   .btn:hover::after {
+}
+
+.btn:hover::after {
     transform: skew(45deg) translate(-50%, -50%);
-   }
-   
-   .btn:hover {
+}
+
+.btn:hover {
     color: var(--color2);
-   }
-   
-   .btn:active {
+}
+
+.btn:active {
     filter: brightness(.7);
     transform: scale(.98);
-   }
+}
+/* Fin de estilo de boton */
