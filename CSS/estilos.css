@@ -1,3 +1,7 @@
+* {
+    transition: 0.5s;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -13,6 +17,112 @@ header {
     margin-bottom: 2em;
 }
 
+header.dark-mode {
+    background-color: #006064;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+/*Toggle*/
+input {
+    display: none;
+}
+
+.display {
+    width: 10%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+label {
+    /* border: solid; */
+    width: 100px;
+    height: 50px;
+    border-radius: 99px;
+    background: #F3F3F3;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.05) inset;
+    cursor: pointer;
+    position: relative;
+}
+
+.circle {
+    /* border: solid; */
+    width: 40px;
+    height: 40px;
+    border-radius: 99px;
+    background: white;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.05), -10px -10px 30px rgba(0, 0, 0, 0.05)inset;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(10%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+svg {
+    width: 40px;
+    position: absolute;
+}
+
+.sun {
+    color: #ffd600;
+    margin-top: 0%;
+    opacity: 1;
+}
+
+.moon {
+    margin-top: -150px;
+    color: white;
+    opacity: 0;
+}
+
+/* input[type=checkbox]:checked + .display{
+    background:#2C2C2F ;
+} */
+
+body.dark-mode {
+    background-color: #2C2C2F;
+    /* Color de fondo oscuro */
+}
+
+header.dark-mode {
+    background-color: #006064;
+}
+
+input[type=checkbox]:checked+.display label {
+    background: #1f1f21;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5) inset;
+}
+
+input[type=checkbox]:checked+.display label .circle {
+    left: 100%;
+    transform: translate(-110%, -50%);
+    background: #2C2C2F;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5), -10px -10px 30px rgba(0, 0, 0, 0.5)inset;
+
+}
+
+input[type=checkbox]:checked+.display label .circle .sun {
+    margin-top: 150%;
+    opacity: 0;
+}
+
+input[type=checkbox]:checked+.display label .circle .moon {
+    margin-top: 0%;
+    opacity: 1;
+}
+
+label:active .circle {
+    width: 50px;
+}
+
+/*Fin toogle*/
 nav ul {
     list-style-type: none;
     margin: 0;
@@ -40,12 +150,14 @@ main {
     flex-wrap: wrap;
     justify-content: center;
 }
+
 /* Carrusel de imágenes */
 .carrousel {
     width: 90%;
     max-width: 120em;
     padding: 2em;
-    margin: auto; /* Centra el carrusel */
+    margin: auto;
+    /* Centra el carrusel */
     border: 1px solid rgba(177, 174, 174, 0.479);
     border-radius: 5px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -53,23 +165,28 @@ main {
 }
 
 .carrousel .grande {
-    width: 200%; /* Doble el ancho para mostrar imágenes */
+    width: 200%;
+    /* Doble el ancho para mostrar imágenes */
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
     padding: 2em;
-    transition: transform 0.5s ease; /* Suaviza la transición */
+    transition: transform 0.5s ease;
+    /* Suaviza la transición */
     transform: translateX(0%);
     gap: 6em;
 }
 
 .carrousel .img {
     flex: 1;
-    max-width: calc(100% / 2 - 7em); /* Ajuste dinámico según el número de imágenes */
+    max-width: calc(100% / 2 - 7em);
+    /* Ajuste dinámico según el número de imágenes */
     min-height: 10vh;
-    margin: 0 .65%; /* Espaciado lateral */
-    box-sizing: border-box; /* Asegura que el padding se incluya en el tamaño total */
+    margin: 0 .65%;
+    /* Espaciado lateral */
+    box-sizing: border-box;
+    /* Asegura que el padding se incluya en el tamaño total */
 }
 
 .carrousel .puntos {
@@ -87,8 +204,9 @@ main {
     margin: 1em;
     background-color: #00796b;
     border-radius: 50%;
-    cursor: pointer; 
-    transition: background-color 0.3s ease; /* Suaviza el cambio de color */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* Suaviza el cambio de color */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -96,6 +214,7 @@ main {
     opacity: 1;
     background-color: aqua;
 }
+
 /*Fin de carrusel*/
 .pet-card {
     border: 1px solid #b2dfdb;
@@ -138,6 +257,7 @@ footer {
     padding: 20px;
     text-align: center;
 }
+
 /* Estilo de boton */
 .btn {
     --color: #00A97F;
@@ -195,4 +315,5 @@ footer {
     filter: brightness(.7);
     transform: scale(.98);
 }
+
 /* Fin de estilo de boton */
