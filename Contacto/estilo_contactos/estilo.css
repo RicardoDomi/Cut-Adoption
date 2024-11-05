@@ -1,0 +1,242 @@
+* {
+    transition: 0.5s;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: url(../../Resource/ComfyUI_temp_shzjh_00001_.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: background 2s ease;
+}
+
+body.dark-mode{
+    background: url(../../Resource/00002-3822113999.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: background 2s ease;
+}
+
+header {
+    background-color: #e0f7fa;
+    /* Light cyan */
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+header.dark-mode {
+    background-color: #006064;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #00796b;
+    /* Teal */
+}
+
+body.dark-mode nav ul li a {
+    text-decoration: none;
+    color: #80cbc4;
+    /* Teal */
+}
+
+/*Toggle*/
+input[type="checkbox"] {
+    display: none;
+}
+
+.display {
+    width: 10%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+label {
+    /* border: solid; */
+    width: 100px;
+    height: 50px;
+    border-radius: 99px;
+    background: #F3F3F3;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.05) inset;
+    cursor: pointer;
+    position: relative;
+}
+
+.circle {
+    /* border: solid; */
+    width: 40px;
+    height: 40px;
+    border-radius: 99px;
+    background: white;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.05), -10px -10px 30px rgba(0, 0, 0, 0.05)inset;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(10%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+svg {
+    width: 40px;
+    position: absolute;
+}
+
+.sun {
+    color: #ffd600;
+    margin-top: 0%;
+    opacity: 1;
+}
+
+.moon {
+    margin-top: -150px;
+    color: white;
+    opacity: 0;
+}
+
+/* input[type=checkbox]:checked + .display{
+    background:#2C2C2F ;
+} */
+
+body.dark-mode {
+    background-color: #2C2C2F;
+    /* Color de fondo oscuro */
+}
+
+header.dark-mode {
+    background-color: #006064;
+}
+
+input[type=checkbox]:checked+.display label {
+    background: #1f1f21;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5) inset;
+}
+
+input[type=checkbox]:checked+.display label .circle {
+    left: 100%;
+    transform: translate(-110%, -50%);
+    background: #2C2C2F;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5), -10px -10px 30px rgba(0, 0, 0, 0.5)inset;
+
+}
+
+input[type=checkbox]:checked+.display label .circle .sun {
+    margin-top: 150%;
+    opacity: 0;
+}
+
+input[type=checkbox]:checked+.display label .circle .moon {
+    margin-top: 0%;
+    opacity: 1;
+}
+
+label:active .circle {
+    width: 50px;
+}
+
+/*Formulario*/
+.form {
+    width: 340px;
+    height: 440px;
+    background: #e6e6e6;
+    border-radius: 8px;
+    box-shadow: 0 0 40px -10px #000;
+    margin: calc(50vh - 220px) auto;
+    padding: 20px 30px;
+    max-width: calc(100vw - 40px);
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    position: relative
+}
+
+h2 {
+    margin: 10px 0;
+    padding-bottom: 10px;
+    width: 180px;
+    color: #00A97F;
+    border-bottom: 3px solid #00796b
+}
+
+.inputFormulario {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background: none;
+    outline: none;
+    resize: none;
+    border: 0;
+    font-family: 'Montserrat', sans-serif;
+    transition: all .3s;
+    border-bottom: 2px solid #bebed2
+}
+
+.inputFormulario:focus {
+    border-bottom: 2px solid #78788c
+}
+
+p:before {
+    content: attr(type);
+    display: block;
+    margin: 28px 0 0;
+    font-size: 14px;
+    color: #00A97F
+}
+
+button {
+    float: right;
+    padding: 8px 12px;
+    margin: 8px 0 0;
+    font-family: 'Montserrat', sans-serif;
+    border: 2px solid #00796b;
+    background: 0;
+    color: #00A97F;
+    cursor: pointer;
+    transition: all .3s
+}
+
+button:hover {
+    background: #00A97F;
+    color: #fff
+}
+
+#divFormulario {
+    content: 'Hi';
+    position: absolute;
+    bottom: -15px;
+    right: -20px;
+    background: #00A97F;
+    color: #fff;
+    width: 320px;
+    padding: 16px 4px 16px 0;
+    border-radius: 6px;
+    font-size: 13px;
+    box-shadow: 10px 10px 40px -14px #000
+}
+
+span {
+    margin: 0 5px 0 15px
+}
