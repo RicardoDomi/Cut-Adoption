@@ -1,5 +1,6 @@
 const grande = document.querySelector('.grande');
 const puntos = document.querySelectorAll('.punto');
+const header = document.querySelector('header');
 
 document.addEventListener('DOMContentLoaded', () => {
     // Agrega un evento de clic a cada botón
@@ -15,19 +16,28 @@ document.addEventListener('DOMContentLoaded', () => {
             cadaPunto.classList.add('activo');
         });
     });
+    const theme = localStorage.getItem('theme');
+    const toggle = document.getElementById('toogle');
+    if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+        header.classList.add('dark-mode');
+        toggle.checked = true; // Marca el toggle si el modo oscuro está activo
+    }
 });
 
 //Modo oscuro
 document.getElementById('toogle').addEventListener('change', function () {
     if (this.checked) {
-        console.log("Modo oscuro")
-        document.body.classList.add('dark-mode'); // Agrega la clase cuando está marcado
+        console.log("Modo oscuro");
+        document.body.classList.add('dark-mode');
         header.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
     } else {
-        document.body.classList.remove('dark-mode'); // Elimina la clase cuando no está marcado
+        console.log("Modo claro");
+        document.body.classList.remove('dark-mode');
         header.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light');
     }
 });
-
 
 //Fin modo oscuro
