@@ -37,18 +37,26 @@
             </ul>
         </nav>
     </header>
-    <form class="form">
+    <form class="form" id="formContacto">
         <h2>Contacta con nosotros</h2>
         <p type="Nombre:"><input class="inputFormulario" placeholder="Escribe tu nombre aqui.."></input></p>
         <p type="Email:"><input class="inputFormulario" placeholder="Déjanos saber cómo comunicarnos contigo.."></input>
         </p>
         <p type="Mensaje:"><input class="inputFormulario" placeholder="¿Que te gustaria contarnos?.."></input></p>
-        <button>Enviar Mensaje</button>
+        <button type="submit">Enviar Mensaje</button>
         <div id="divFormulario">
             <span class="fa fa-phone"></span>001 1023 567
-            <span class="fa fa-envelope-o"></span> contact@company.com
+            <span class="fa fa-envelope-o"></span> adopta_cut@company.com
         </div>
     </form>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <h2>¡Mensaje Enviado con Éxito!</h2>
+            <p id="pModal">Gracias por ponerte en contacto con nosotros. Responderemos a tu mensaje pronto.</p>
+            <button class="modal-button" onclick="cerrarModal()">Cerrar</button>
+        </div>
+    </div>
     <script src="js_contacto/contacto.js"></script>
 </body>
 

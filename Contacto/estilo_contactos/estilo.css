@@ -13,7 +13,7 @@ body {
     transition: background 2s ease;
 }
 
-body.dark-mode{
+body.dark-mode {
     background: url(../../Resource/00002-3822113999.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -239,4 +239,49 @@ button:hover {
 
 span {
     margin: 0 5px 0 15px
+}
+
+/*Modal*/
+.modal {
+    display: none;
+    /* Ocultarlo inicialmente */
+    position: fixed;
+    /* Posición fija */
+    z-index: 1;
+    /* Asegura que el modal esté por encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Si el contenido es más grande que la pantalla */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Fondo oscuro semitransparente */
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    /* Centrado */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    /* Ancho del modal */
+    max-width: 400px;
+    text-align: center;
+}
+
+.modal-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.modal-button:hover {
+    background-color: #45a049;
 }

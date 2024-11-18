@@ -8,6 +8,7 @@ body {
     padding: 0;
     overflow-x: hidden;
 }
+
 /*Header*/
 header {
     background-color: #e0f7fa;
@@ -19,6 +20,7 @@ header {
 
 header.dark-mode {
     background-color: #006064;
+    color: #fff;
     padding: 20px;
     text-align: center;
     margin-bottom: 2em;
@@ -41,6 +43,13 @@ nav ul li a {
     color: #00796b;
     /* Teal */
 }
+
+body.dark-mode nav ul li a {
+    text-decoration: none;
+    color: #80cbc4;
+    /* Teal */
+}
+
 /*FIN HEADER*/
 
 /*Toggle*/
@@ -163,7 +172,7 @@ main {
     border: 1px solid rgba(177, 174, 174, 0.479);
     border-radius: 5px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    background-color: bisque;
+    /* background-color: bisque; */
 }
 
 .carrousel .grande {
