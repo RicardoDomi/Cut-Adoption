@@ -1,0 +1,145 @@
+/* Estilos generales del body y header */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    transition: background-color 0.5s;
+}
+
+header {
+    background-color: #e0f7fa; /* Light cyan */
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 2em;
+    transition: background-color 0.5s;
+}
+
+header.dark-mode {
+    background-color: #006064;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 2em;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #00796b; /* Teal */
+}
+
+/* Toggle switch for dark mode */
+input[type="checkbox"] {
+    display: none;
+}
+
+.display {
+    width: 50px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+
+label {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    background: #F3F3F3;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: background 0.3s;
+}
+
+.circle {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: white;
+    position: absolute;
+    left: 5px;
+    transition: left 0.3s;
+}
+
+input[type="checkbox"]:checked + .display label {
+    background-color: #1f1f21;
+}
+
+input[type="checkbox"]:checked + .display label .circle {
+    left: 25px;
+}
+
+input[type="checkbox"]:checked + .display label .circle .sun {
+    opacity: 0;
+}
+
+input[type="checkbox"]:checked + .display label .circle .moon {
+    opacity: 1;
+}
+
+/* Estilos para el modo oscuro */
+body.dark-mode {
+    background-color: #2C2C2F;
+}
+
+header.dark-mode {
+    background-color: #006064;
+}
+
+/* Animación de transición */
+.sun {
+    color: #ffd600;
+    margin-top: 0%;
+    opacity: 1;
+}
+
+.moon {
+    margin-top: -150px;
+    color: white;
+    opacity: 0;
+}
+
+body.dark-mode {
+    background-color: #2C2C2F;
+    /* Color de fondo oscuro */
+}
+
+header.dark-mode {
+    background-color: #006064;
+}
+/* Contenido principal */
+main {
+    padding: 20px;
+}
+
+#quienes-somos, #mision, #vision {
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #00796b; /* Teal */
+}
+
+p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Footer */
+footer {
+    background-color: #e0f7fa;
+    padding: 20px;
+    text-align: center;
+}
