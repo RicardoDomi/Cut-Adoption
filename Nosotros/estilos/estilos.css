@@ -1,14 +1,26 @@
 /* Estilos generales del body y header */
+* {
+    transition: 0.5s;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     transition: background-color 0.5s;
+    display: flex;
+    flex-direction: column;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 header {
-    background-color: #e0f7fa; /* Light cyan */
+    background-color: #e0f7fa;
+    /* Light cyan */
     padding: 20px;
     text-align: center;
     margin-bottom: 2em;
@@ -21,6 +33,7 @@ header.dark-mode {
     text-align: center;
     margin-bottom: 2em;
 }
+
 nav ul {
     list-style-type: none;
     margin: 0;
@@ -35,7 +48,8 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #00796b; /* Teal */
+    color: #80cbc4;
+    /* Teal */
 }
 
 /* Toggle switch for dark mode */
@@ -73,40 +87,50 @@ label {
     transition: left 0.3s;
 }
 
-input[type="checkbox"]:checked + .display label {
+input[type="checkbox"]:checked+.display label {
     background-color: #1f1f21;
 }
 
-input[type="checkbox"]:checked + .display label .circle {
+input[type="checkbox"]:checked+.display label .circle {
     left: 25px;
 }
 
-input[type="checkbox"]:checked + .display label .circle .sun {
+input[type="checkbox"]:checked+.display label .circle .sun {
     opacity: 0;
 }
 
-input[type="checkbox"]:checked + .display label .circle .moon {
+input[type="checkbox"]:checked+.display label .circle .moon {
     opacity: 1;
 }
 
 /* Estilos para el modo oscuro */
 body.dark-mode {
     background-color: #2C2C2F;
+    color: white;
 }
 
 header.dark-mode {
     background-color: #006064;
 }
 
+.sun,
+.moon {
+    position: absolute;
+    left: 0px;
+    font-size: 16px;
+    transition: opacity 0.3s;
+}
+
+
 /* Animación de transición */
 .sun {
     color: #ffd600;
-    margin-top: 0%;
+    /* margin-top: 0%; */
     opacity: 1;
 }
 
 .moon {
-    margin-top: -150px;
+    /* margin-top: -150px; */
     color: white;
     opacity: 0;
 }
@@ -114,22 +138,28 @@ header.dark-mode {
 body.dark-mode {
     background-color: #2C2C2F;
     /* Color de fondo oscuro */
+    color: white;
 }
 
 header.dark-mode {
     background-color: #006064;
 }
+
 /* Contenido principal */
 main {
     padding: 20px;
+    flex-grow: 1;
 }
 
-#quienes-somos, #mision, #vision {
+#quienes-somos,
+#mision,
+#vision {
     margin-bottom: 20px;
 }
 
 h2 {
-    color: #00796b; /* Teal */
+    color: #00796b;
+    /* Teal */
 }
 
 p {
@@ -137,9 +167,21 @@ p {
     color: #333;
 }
 
+body.dark-mode p {
+    color: white;
+    /* Color del texto en modo oscuro */
+}
+
 /* Footer */
 footer {
     background-color: #e0f7fa;
     padding: 20px;
     text-align: center;
+    margin-top: auto;
+}
+
+/* Cambiar color de las letras del footer en modo oscuro */
+body.dark-mode footer p {
+    color: black;
+    /* Cambia el color del texto a blanco */
 }
