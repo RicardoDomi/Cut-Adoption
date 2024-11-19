@@ -1,30 +1,76 @@
-const grande = document.querySelector('.grande');
-const puntos = document.querySelectorAll('.punto');
-const header = document.querySelector('header');
+// Cargar información de la base de datos
+async function cargarMascotas() {
+    try {
+        console.log("Requerir mascotas...");
+        const response = await fetch('conexion.php');
+        const mascotas = await response.json();
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Agrega un evento de clic a cada botón
-    puntos.forEach((cadaPunto, i) => {
-        cadaPunto.addEventListener('click', () => {
-            let operacion = i * -50; // Cambia -50% a -100% si tienes más imágenes
-            grande.style.transform = `translateX(${operacion}%)`;
+        console.log(mascotas);
 
-            puntos.forEach((punto) => {
-                punto.classList.remove('activo');
-            });
-            cadaPunto.classList.add('activo');
+        const contenedor = document.querySelector('.pet-cards-container');
+        contenedor.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevas mascotas
+
+        // Crear las tarjetas de mascotas
+        mascotas.forEach(mascota => {
+            const card = document.createElement('div');
+            card.classList.add('pet-card');
+            card.innerHTML = `
+                <img src="${mascota.ImagenURL}" alt="${mascota.Nombre}">
+                <h3>${mascota.Nombre}</h3>
+                <p>Edad: ${mascota.Edad} años</p>
+                <button class="btn" data-id="${mascota.id}">Adoptar</button>
+            `;
+            contenedor.appendChild(card);
         });
-    });
-    const theme = localStorage.getItem('theme');
-    const toggle = document.getElementById('toogle');
-    if (theme === 'dark') {
-        document.body.classList.add('dark-mode');
-        header.classList.add('dark-mode');
-        toggle.checked = true; // Marca el toggle si el modo oscuro está activo
-    }
-});
 
-//Modo oscuro
+        // Agregar los eventos de clic a los botones "Adoptar"
+        // Delegación de eventos
+        document.querySelector('.pet-cards-container').addEventListener('click', async function (event) {
+            if (event.target && event.target.classList.contains('btn')) {
+                console.log("Adoptar click");
+
+                // Obtener el ID de la mascota
+                const idMascota = event.target.getAttribute('data-id');  
+                const idAdoptante = 1; // ID del adoptante (esto debe estar en algún lugar de tu sistema)
+
+                try {
+                    // Realizar la solicitud para registrar la adopción
+                    const respuesta = await fetch('adoptar.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            id_mascota: idMascota,
+                            fecha_adopcion: new Date().toISOString().split('T')[0], // Fecha actual en formato YYYY-MM-DD
+                            estado_adopcion: 'Pendiente',  // Estado inicial de la adopción
+                        }),
+                    });
+
+                    const data = await respuesta.json();
+
+                    // Verificar si la adopción fue exitosa
+                    if (data.success) {
+                        alert("¡Adopción registrada con éxito!");
+                    } else {
+                        alert("Hubo un error al registrar la adopción.");
+                    }
+                } catch (error) {
+                    console.error("Error al registrar la adopción:", error);
+                    alert("Ocurrió un error al intentar registrar la adopción.");
+                }
+            }
+        });
+
+    } catch (error) {
+        console.error('Error al cargar las mascotas:', error);
+    }
+}
+
+// Llama a la función al cargar la página
+document.addEventListener('DOMContentLoaded', cargarMascotas);
+
+// Modo oscuro
 document.getElementById('toogle').addEventListener('change', function () {
     if (this.checked) {
         console.log("Modo oscuro");
@@ -38,34 +84,3 @@ document.getElementById('toogle').addEventListener('change', function () {
         localStorage.setItem('theme', 'light');
     }
 });
-
-//Fin modo oscuro
-
-//Cargar info de base de datos
-async function cargarMascotas() {
-    try {
-        const response = await fetch('conexion.php');
-        const mascotas = await response.json();
-
-        console.log(mascotas);
-
-        const contenedor = document.querySelector('.pet-cards-container');
-
-        mascotas.forEach(mascota => {
-            const card = document.createElement('div');
-            card.classList.add('pet-card');
-            card.innerHTML = `
-             <img src="${mascota.ImagenURL}" alt="${mascota.Nombre}"
-                <h3>${mascota.Nombre}</h3>
-                <p>Edad: ${mascota.Edad} años</p>
-                <button class="btn">Adoptar</button>
-            `;
-            contenedor.appendChild(card);
-        });
-    } catch (error) {
-        console.error('Error al cargar las mascotas:', error);
-    }
-}
-// Llama a la función al cargar la página
-document.addEventListener('DOMContentLoaded', cargarMascotas);
-//Fin carga cards perros

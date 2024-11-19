@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 // Consulta para obtener las mascotas (corrigiendo la coma extra)
-$sql = "SELECT Nombre, Edad, ImagenURL FROM mascotas"; // Se eliminó la coma después de 'Edad'
+$sql = "SELECT Nombre, Edad, ImagenURL FROM mascotas";
 $result = $conn->query($sql);
 
 // Verificar si hay resultados
