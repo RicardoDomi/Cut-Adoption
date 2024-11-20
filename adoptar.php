@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 // Conexión a la base de datos
 $host = 'localhost';
 $db = 'adopta_cut';
@@ -16,6 +19,11 @@ if ($conn->connect_error) {
 // Obtener datos del POST (en formato JSON)
 $input = json_decode(file_get_contents('php://input'), true);
 
+if (json_last_error() !== JSON_ERROR_NONE) {
+    echo json_encode(['success' => false, 'error' => 'Error en la decodificación JSON: ' . json_last_error_msg()]);
+    exit;
+}
+
 // Verificar si los datos están completos
 if (isset($input['id_mascota'], $input['fecha_adopcion'], $input['estado_adopcion'])) {
     $id_mascota = $input['id_mascota'];
@@ -32,12 +40,11 @@ if (isset($input['id_mascota'], $input['fecha_adopcion'], $input['estado_adopcio
     }
 
     // Preparar la consulta para insertar en la tabla adopciones
-    $sql = "INSERT INTO adopciones (id_mascota, fecha_adopcion, estado_adopcion) 
-            VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO adopciones (ID_mascota, FechaAdopcion, estado) VALUES (?, ?, ?)";
 
     // Preparar la sentencia
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("iiss", $id_mascota, $fecha_adopcion, $estado_adopcion);
+    $stmt->bind_param("iss", $id_mascota, $fecha_adopcion, $estado_adopcion);
 
     // Ejecutar la consulta
     if ($stmt->execute()) {
@@ -54,5 +61,4 @@ if (isset($input['id_mascota'], $input['fecha_adopcion'], $input['estado_adopcio
 
 // Cerrar la conexión
 $conn->close();
-
 ?>

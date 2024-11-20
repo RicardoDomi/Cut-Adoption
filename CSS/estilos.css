@@ -328,3 +328,13 @@ footer {
 }
 
 /* Fin de estilo de boton */
+
+/* Estilo para el botón cuando está en proceso de adopción */
+.en-proceso {
+    background-color: #808080;
+    /* Gris */
+    color: #ffffff;
+    /* Texto blanco */
+    cursor: not-allowed;
+    /* Cambia el cursor para indicar que está deshabilitado */
+}

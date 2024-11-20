@@ -1,3 +1,28 @@
+const grande = document.querySelector('.grande');
+const puntos = document.querySelectorAll('.punto');
+const header = document.querySelector('header');
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Agrega un evento de clic a cada botón
+    puntos.forEach((cadaPunto, i) => {
+        cadaPunto.addEventListener('click', () => {
+            let operacion = i * -50; // Cambia -50% a -100% si tienes más imágenes
+            grande.style.transform = `translateX(${operacion}%)`;
+            puntos.forEach((punto) => {
+                punto.classList.remove('activo');
+            });
+            cadaPunto.classList.add('activo');
+        });
+    });
+    const theme = localStorage.getItem('theme');
+    const toggle = document.getElementById('toogle');
+    if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+        header.classList.add('dark-mode');
+        toggle.checked = true; // Marca el toggle si el modo oscuro está activo
+    }
+});
+
 // Cargar información de la base de datos
 async function cargarMascotas() {
     try {
@@ -18,22 +43,30 @@ async function cargarMascotas() {
                 <img src="${mascota.ImagenURL}" alt="${mascota.Nombre}">
                 <h3>${mascota.Nombre}</h3>
                 <p>Edad: ${mascota.Edad} años</p>
-                <button class="btn" data-id="${mascota.id}">Adoptar</button>
+                <button class="btn" data-id="${mascota.ID_Mascota}" ${mascota.en_proceso ? 'disabled' : ''}>
+                    ${mascota.en_proceso ? 'En proceso de adopción' : 'Adoptar'}
+                </button>
             `;
             contenedor.appendChild(card);
         });
 
         // Agregar los eventos de clic a los botones "Adoptar"
-        // Delegación de eventos
         document.querySelector('.pet-cards-container').addEventListener('click', async function (event) {
-            if (event.target && event.target.classList.contains('btn')) {
+            if (event.target && event.target.classList.contains('btn') && !event.target.disabled) {
                 console.log("Adoptar click");
 
                 // Obtener el ID de la mascota
-                const idMascota = event.target.getAttribute('data-id');  
+                const idMascota = event.target.getAttribute('data-id');
+                console.log('ID de la mascota:', idMascota);
                 const idAdoptante = 1; // ID del adoptante (esto debe estar en algún lugar de tu sistema)
 
                 try {
+                    // Desactivar el botón y cambiar su estilo a "en proceso"
+                    const boton = event.target;
+                    boton.disabled = true;
+                    boton.classList.add('en-proceso');
+                    boton.innerText = "En proceso de adopción...";
+
                     // Realizar la solicitud para registrar la adopción
                     const respuesta = await fetch('adoptar.php', {
                         method: 'POST',
@@ -43,13 +76,12 @@ async function cargarMascotas() {
                         body: JSON.stringify({
                             id_mascota: idMascota,
                             fecha_adopcion: new Date().toISOString().split('T')[0], // Fecha actual en formato YYYY-MM-DD
-                            estado_adopcion: 'Pendiente',  // Estado inicial de la adopción
+                            estado_adopcion: 'Pendiente', // Estado inicial de la adopción
                         }),
                     });
 
                     const data = await respuesta.json();
 
-                    // Verificar si la adopción fue exitosa
                     if (data.success) {
                         alert("¡Adopción registrada con éxito!");
                     } else {
@@ -66,6 +98,7 @@ async function cargarMascotas() {
         console.error('Error al cargar las mascotas:', error);
     }
 }
+
 
 // Llama a la función al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
@@ -89,4 +122,7 @@ document.getElementById('toogle').addEventListener('change', function () {
         if (header) header.classList.remove('dark-mode');
         localStorage.setItem('theme', 'light');
     }
-});s
+});
+
+// Llama a la función al cargar la página
+document.addEventListener('DOMContentLoaded', cargarMascotas);
