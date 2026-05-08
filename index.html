@@ -5,65 +5,245 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adopta CUT</title>
+
     <link rel="stylesheet" href="CSS/estilos.css">
 </head>
 
 <body>
+
+    <!-- HEADER -->
+
     <header id="header">
+
         <h1>Adopta una Mascota</h1>
+
         <nav>
             <ul>
-                <li><a href="index.html">Inicio</a></li>
+
+                <li><a href="#inicio">Inicio</a></li>
                 <li><a href="Nosotros/nosotros.html">Nosotros</a></li>
                 <li><a href="#mascotas">Mascotas Disponibles</a></li>
+                <li><a href="#solicitud">Solicitud</a></li>
                 <li><a href="Contacto/contacto.html">Contacto</a></li>
+
                 <input type="checkbox" id="toogle">
+
                 <div class="display">
+
                     <label for="toogle">
+
                         <div class="circle">
-                            <svg class="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+
+                            <svg class="sun" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24" fill="currentColor">
+
                                 <path
                                     d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
+
                             </svg>
-                            <svg class="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                fill="currentColor">
+
+                            <svg class="moon" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24" fill="currentColor">
+
                                 <path fill-rule="evenodd"
                                     d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z"
                                     clip-rule="evenodd" />
+
                             </svg>
+
                         </div>
+
                     </label>
+
                 </div>
+
             </ul>
         </nav>
+
     </header>
+
+
+    <!-- CARRUSEL -->
+
     <div class="carrousel">
+
         <div class="grande">
+
             <img src="Resource/ComfyUI_00014_.png" alt="Imagen 1" class="img">
+
             <img src="Resource/ComfyUI_00015_.png" alt="Imagen 2" class="img">
+
             <img src="Resource/ComfyUI_00015_.png" alt="Imagen 3" class="img">
+
         </div>
+
         <ul class="puntos">
+
             <div class="punto activo"></div>
             <div class="punto"></div>
             <div class="punto"></div>
+
         </ul>
+
     </div>
+
+
+    <!-- MAIN -->
+
     <main>
+
+        <!-- INICIO -->
+
         <section id="inicio">
+
             <h2>Bienvenidos a nuestra página de adopción</h2>
-            <p>Encuéntra a tu compañero peludo ideal.</p>
+
+            <p>Encuentra a tu compañero peludo ideal.</p>
+
         </section>
+
+
+        <!-- CARACTERÍSTICAS -->
+
+        <section class="caracteristicas">
+
+            <div class="feature-card">
+                <h3>Gestión de Adopciones</h3>
+                <p>Administra solicitudes y seguimiento de mascotas.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Control de Mascotas</h3>
+                <p>Visualiza mascotas disponibles y su estado.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Base de Datos</h3>
+                <p>La información se administra mediante PHP y MySQL.</p>
+            </div>
+
+        </section>
+
+
+        <!-- FILTROS -->
+
+        <section class="filtros">
+
+            <select>
+                <option>Todas las edades</option>
+                <option>Cachorros</option>
+                <option>Adultos</option>
+            </select>
+
+            <select>
+                <option>Todos los estados</option>
+                <option>Disponibles</option>
+                <option>En proceso</option>
+            </select>
+
+        </section>
+
+
+        <!-- MASCOTAS -->
+
         <section id="mascotas">
+
             <h2>Mascotas Disponibles</h2>
-            <div class="pet-cards-container"> <!-- Move this div here -->
-                <!-- Agregar más mascotas aquí -->
-            </div> <!-- Close the container here -->
+
+            <div class="pet-cards-container">
+
+            </div>
+
         </section>
+
+
+        <!-- FORMULARIO -->
+
+        <section id="solicitud" class="formulario-adopcion">
+
+            <div class="contenedor-formulario">
+
+                <h2>Solicitud de Adopción</h2>
+
+                <p>Completa tus datos para iniciar el proceso de adopción.</p>
+
+                <form id="formSolicitud">
+
+    <div class="grupo-inputs">
+
+        <input
+            type="text"
+            id="nombre"
+            placeholder="Nombre completo"
+            required>
+
+        <input
+            type="email"
+            id="correo"
+            placeholder="Correo electrónico"
+            required>
+
+    </div>
+
+    <div class="grupo-inputs">
+
+        <input
+            type="text"
+            id="telefono"
+            placeholder="Teléfono"
+            required>
+
+        <input
+            type="text"
+            id="direccion"
+            placeholder="Dirección"
+            required>
+
+    </div>
+
+    <select id="vivienda" required>
+
+        <option value="">Tipo de vivienda</option>
+        <option value="Casa">Casa</option>
+        <option value="Departamento">Departamento</option>
+
+    </select>
+
+    <textarea
+        id="motivo"
+        placeholder="¿Por qué deseas adoptar?"
+        required></textarea>
+
+    <textarea
+        id="experiencia"
+        placeholder="¿Has tenido mascotas antes?"
+        required></textarea>
+
+    <button type="submit">
+        Enviar solicitud
+    </button>
+
+</form>
+            </div>
+
+        </section>
+
     </main>
+
+
+    <!-- FOOTER -->
+
     <footer>
+
         <p>&copy; 2025 Adopta una Mascota. Todos los derechos reservados.</p>
+
     </footer>
+
+
+    <!-- SCRIPT -->
+
     <script src="app.js"></script>
+
 </body>
+
 </html>

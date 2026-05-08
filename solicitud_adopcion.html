@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de Adopción</title>
+
+    <link rel="stylesheet" href="CSS/estilos.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header id="header">
+
+        <h1>Adopta una Mascota</h1>
+
+        <nav>
+            <ul>
+
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#mascotas">Mascotas Disponibles</a></li>
+                <li><a href="Nosotros/nosotros.html">Nosotros</a></li>
+                <li><a href="Contacto/contacto.html">Contacto</a></li>
+
+            </ul>
+        </nav>
+
+    </header>
+
+
+    <!-- FORMULARIO -->
+
+    <main class="formulario-adopcion">
+
+        <div class="contenedor-formulario">
+
+            <h1>Solicitud de Adopción</h1>
+
+            <p>Completa tus datos para iniciar el proceso de adopción.</p>
+
+            <form id="formSolicitud">
+
+                <input
+                    type="text"
+                    id="nombre"
+                    placeholder="Nombre completo"
+                    required>
+
+                <input
+                    type="email"
+                    id="correo"
+                    placeholder="Correo electrónico"
+                    required>
+
+                <input
+                    type="text"
+                    id="telefono"
+                    placeholder="Teléfono"
+                    required>
+
+                <input
+                    type="text"
+                    id="direccion"
+                    placeholder="Dirección"
+                    required>
+
+                <select id="vivienda" required>
+
+                    <option value="">Tipo de vivienda</option>
+                    <option value="Casa">Casa</option>
+                    <option value="Departamento">Departamento</option>
+
+                </select>
+
+                <textarea
+                    id="motivo"
+                    placeholder="¿Por qué deseas adoptar?"
+                    required></textarea>
+
+                <textarea
+                    id="experiencia"
+                    placeholder="¿Has tenido mascotas antes?"
+                    required></textarea>
+
+                <button type="submit">
+                    Enviar solicitud
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>&copy; 2025 Adopta una Mascota. Todos los derechos reservados.</p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>

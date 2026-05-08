@@ -338,3 +338,376 @@ footer {
     cursor: not-allowed;
     /* Cambia el cursor para indicar que está deshabilitado */
 }
+/* =========================
+   FILTROS
+========================= */
+
+.filtros-mascotas{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin:25px 0;
+}
+
+.filtros-mascotas input,
+.filtros-mascotas select{
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    background:#f2f2f2;
+    font-size:15px;
+    min-width:220px;
+}
+
+
+/* =========================
+   RESUMEN SISTEMA
+========================= */
+
+.resumen-sistema{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    padding:40px 20px;
+}
+
+.resumen-card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    width:300px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.resumen-card:hover{
+    transform:translateY(-5px);
+}
+
+.resumen-card h3{
+    margin-bottom:10px;
+    color:#00b894;
+}
+
+
+/* =========================
+   TARJETAS MASCOTAS
+========================= */
+
+.pet-card{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    width:320px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.pet-card:hover{
+    transform:translateY(-5px);
+}
+
+.pet-card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+}
+
+.pet-info{
+    padding:20px;
+}
+
+.pet-info h3{
+    margin-bottom:10px;
+    color:#00b894;
+}
+
+.descripcion{
+    margin-top:10px;
+    color:#555;
+}
+
+
+/* =========================
+   ESTADOS
+========================= */
+
+.estado-disponible{
+    background:#00b894;
+    color:white;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:14px;
+}
+
+.estado-proceso{
+    background:#fdcb6e;
+    color:black;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:14px;
+}
+
+
+/* =========================
+   FORMULARIO ADOPCIÓN
+========================= */
+
+.formulario-adopcion{
+    max-width:700px;
+    margin:50px auto;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.formulario-adopcion h1{
+    text-align:center;
+    margin-bottom:10px;
+    color:#00b894;
+}
+
+.formulario-adopcion p{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.formulario-adopcion form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.formulario-adopcion input,
+.formulario-adopcion textarea,
+.formulario-adopcion select{
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:#f2f2f2;
+    font-size:15px;
+}
+
+.formulario-adopcion textarea{
+    min-height:120px;
+    resize:none;
+}
+
+.formulario-adopcion button{
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#00b894;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.formulario-adopcion button:hover{
+    background:#00997a;
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.cards{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    width:260px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.numero{
+    font-size:45px;
+    font-weight:bold;
+    color:#00b894;
+}
+
+
+/* =========================
+   MODO OSCURO
+========================= */
+
+.dark-mode .resumen-card,
+.dark-mode .pet-card,
+.dark-mode .formulario-adopcion,
+.dark-mode .card{
+    background:#1f1f1f;
+    color:white;
+}
+
+.dark-mode .descripcion{
+    color:#dcdcdc;
+}
+
+.dark-mode .filtros-mascotas input,
+.dark-mode .filtros-mascotas select,
+.dark-mode .formulario-adopcion input,
+.dark-mode .formulario-adopcion textarea,
+.dark-mode .formulario-adopcion select{
+    background:#2a2a2a;
+    color:white;
+}
+.formulario-adopcion {
+    max-width: 700px;
+    margin: 60px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.formulario-adopcion h1 {
+    text-align: center;
+    color: #008f7a;
+    margin-bottom: 10px;
+}
+
+.formulario-adopcion p {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.formulario-adopcion form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.formulario-adopcion input,
+.formulario-adopcion select,
+.formulario-adopcion textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #cceeee;
+    border-radius: 10px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.formulario-adopcion textarea {
+    min-height: 100px;
+    resize: none;
+}
+
+.formulario-adopcion button {
+    background: #00b894;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.formulario-adopcion button:hover {
+    background: #009f7a;
+}
+.btn-adoptar {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #00b894;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.btn-adoptar:hover {
+    background: #00997a;
+}
+
+.btn-proceso {
+    background: gray;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    cursor: not-allowed;
+}
+/* =========================
+FORMULARIO ADOPCION
+========================= */
+
+.formulario-adopcion {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-formulario {
+    width: 100%;
+    max-width: 800px;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.contenedor-formulario h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #009688;
+}
+
+.contenedor-formulario p {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.grupo-inputs {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.grupo-inputs input {
+    flex: 1;
+}
+
+#formSolicitud input,
+#formSolicitud select,
+#formSolicitud textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #d9f3f0;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+#formSolicitud textarea {
+    min-height: 120px;
+    resize: none;
+}
+
+#formSolicitud button {
+    width: 100%;
+    background: #11c5a1;
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#formSolicitud button:hover {
+    background: #0ea88a;
+}

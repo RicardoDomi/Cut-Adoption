@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `administrador` (
   `FotoURL` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ID_Admin`),
   UNIQUE KEY `Correo` (`Correo`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `administrador`
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `adopciones` (
   KEY `ID_Adoptante` (`ID_Adoptante`),
   KEY `idx_adopciones_mascota_adoptante` (`ID_Mascota`,`ID_Adoptante`),
   KEY `idx_estado_adopcion` (`Estado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `adoptantes` (
   `FechaRegistro` date NOT NULL,
   PRIMARY KEY (`ID_Adoptante`),
   UNIQUE KEY `idx_correo_adoptante` (`Correo`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `adoptantes`
@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `interacciones` (
   PRIMARY KEY (`ID_Interaccion`),
   KEY `ID_Adoptante` (`ID_Adoptante`),
   KEY `idx_interacciones_mascota_adoptante` (`ID_Mascota`,`ID_Adoptante`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -132,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `mascotas` (
   `FechaIngreso` date NOT NULL,
   PRIMARY KEY (`ID_Mascota`),
   KEY `idx_nombre_mascota` (`Nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `mascotas`
