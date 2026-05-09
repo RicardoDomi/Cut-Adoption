@@ -23,8 +23,11 @@
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="Nosotros/nosotros.html">Nosotros</a></li>
                 <li><a href="#mascotas">Mascotas Disponibles</a></li>
+                <li><a href="agregar_mascota.html" style="color:#009688; font-weight:bold;">➕ Agregar Mascota</a></li>
+                <li><a href="eliminar_mascota.php" style="color:#e53935; font-weight:bold;">🗑 Eliminar Mascota</a></li>
                 <li><a href="#solicitud">Solicitud</a></li>
                 <li><a href="Contacto/contacto.html">Contacto</a></li>
+
 
                 <input type="checkbox" id="toogle">
 
@@ -167,61 +170,29 @@
 
                 <p>Completa tus datos para iniciar el proceso de adopción.</p>
 
-                <form id="formSolicitud">
+              <form id="formSolicitud">
 
     <div class="grupo-inputs">
-
-        <input
-            type="text"
-            id="nombre"
-            placeholder="Nombre completo"
-            required>
-
-        <input
-            type="email"
-            id="correo"
-            placeholder="Correo electrónico"
-            required>
-
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required>
+        <input type="email" id="correo" name="correo" placeholder="Correo electrónico" required>
     </div>
 
     <div class="grupo-inputs">
-
-        <input
-            type="text"
-            id="telefono"
-            placeholder="Teléfono"
-            required>
-
-        <input
-            type="text"
-            id="direccion"
-            placeholder="Dirección"
-            required>
-
+        <input type="text" id="telefono" name="telefono" placeholder="Teléfono" required>
+        <input type="text" id="direccion" name="direccion" placeholder="Dirección" required>
     </div>
 
-    <select id="vivienda" required>
-
+    <select id="vivienda" name="vivienda" required>
         <option value="">Tipo de vivienda</option>
         <option value="Casa">Casa</option>
         <option value="Departamento">Departamento</option>
-
     </select>
 
-    <textarea
-        id="motivo"
-        placeholder="¿Por qué deseas adoptar?"
-        required></textarea>
+    <textarea id="motivo" name="motivo" placeholder="¿Por qué deseas adoptar?" required></textarea>
 
-    <textarea
-        id="experiencia"
-        placeholder="¿Has tenido mascotas antes?"
-        required></textarea>
+    <textarea id="experiencia" name="experiencia" placeholder="¿Has tenido mascotas antes?" required></textarea>
 
-    <button type="submit">
-        Enviar solicitud
-    </button>
+    <button type="submit">Enviar solicitud</button>
 
 </form>
             </div>

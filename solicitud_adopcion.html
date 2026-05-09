@@ -43,53 +43,61 @@
 
             <form id="formSolicitud">
 
-                <input
-                    type="text"
-                    id="nombre"
-                    placeholder="Nombre completo"
-                    required>
+    <div class="grupo-inputs">
+        <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            placeholder="Nombre completo"
+            required>
 
-                <input
-                    type="email"
-                    id="correo"
-                    placeholder="Correo electrónico"
-                    required>
+        <input
+            type="email"
+            id="correo"
+            name="correo"
+            placeholder="Correo electrónico"
+            required>
+    </div>
 
-                <input
-                    type="text"
-                    id="telefono"
-                    placeholder="Teléfono"
-                    required>
+    <div class="grupo-inputs">
+        <input
+            type="text"
+            id="telefono"
+            name="telefono"
+            placeholder="Teléfono"
+            required>
 
-                <input
-                    type="text"
-                    id="direccion"
-                    placeholder="Dirección"
-                    required>
+        <input
+            type="text"
+            id="direccion"
+            name="direccion"
+            placeholder="Dirección"
+            required>
+    </div>
 
-                <select id="vivienda" required>
+    <select id="vivienda" name="vivienda" required>
+        <option value="">Tipo de vivienda</option>
+        <option value="Casa">Casa</option>
+        <option value="Departamento">Departamento</option>
+    </select>
 
-                    <option value="">Tipo de vivienda</option>
-                    <option value="Casa">Casa</option>
-                    <option value="Departamento">Departamento</option>
+    <textarea
+        id="motivo"
+        name="motivo"
+        placeholder="¿Por qué deseas adoptar?"
+        required></textarea>
 
-                </select>
+    <textarea
+        id="experiencia"
+        name="experiencia"
+        placeholder="¿Has tenido mascotas antes?"
+        required></textarea>
 
-                <textarea
-                    id="motivo"
-                    placeholder="¿Por qué deseas adoptar?"
-                    required></textarea>
+    <button type="submit">
+        Enviar solicitud
+    </button>
 
-                <textarea
-                    id="experiencia"
-                    placeholder="¿Has tenido mascotas antes?"
-                    required></textarea>
-
-                <button type="submit">
-                    Enviar solicitud
-                </button>
-
-            </form>
+</form>
 
         </div>
 

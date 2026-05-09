@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Mascota - Adopta CUT</title>
+    <link rel="stylesheet" href="CSS/estilos.css">
+    <style>
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        input[type="file"] {
+        display: block !important;
+}
+        .form-mascota input[type="text"],
+        .form-mascota input[type="number"],
+        .form-mascota input[type="date"],
+        .form-mascota input[type="file"],
+        .form-mascota select,
+        .form-mascota textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #d9f3f0;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        .form-mascota textarea {
+            min-height: 120px;
+            resize: none;
+        }
+        .form-mascota button {
+            width: 100%;
+            background: #11c5a1;
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .form-mascota button:hover { background: #0ea88a; }
+        .form-mascota label {
+            display: block;
+            font-weight: bold;
+            color: #00796b;
+            margin-bottom: 6px;
+            width: auto;
+            height: auto;
+            border-radius: 0;
+            background: none;
+            box-shadow: none;
+            cursor: default;
+            position: static;
+        }
+        #preview-img {
+            max-width: 160px;
+            max-height: 160px;
+            border-radius: 10px;
+            border: 2px solid #d9f3f0;
+            object-fit: cover;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .alerta {
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            text-align: center;
+        }
+        .alerta-ok  { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .alerta-err { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header id="header">
+        <h1>Adopta una Mascota</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="Nosotros/nosotros.html">Nosotros</a></li>
+                <li><a href="index.html#mascotas">Mascotas Disponibles</a></li>
+                <li><a href="index.html#solicitud">Solicitud</a></li>
+                <li><a href="Contacto/contacto.html">Contacto</a></li>
+                <li><a href="agregar_mascota.html" style="color:#009688; font-weight:bold;">➕ Agregar Mascota</a></li>
+                <li><a href="eliminar_mascota.php" style="color:#e53935; font-weight:bold;">🗑 Eliminar Mascota</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- FORMULARIO -->
+    <main>
+        <section class="formulario-adopcion">
+            <div class="contenedor-formulario">
+                <h1>Agregar Mascota</h1>
+                <p>Registra una nueva mascota en el sistema de adopción.</p>
+
+                <!-- Alerta de resultado -->
+                <?php if (isset($_GET['status'])): ?>
+                    <?php if ($_GET['status'] === 'success'): ?>
+                        <div class="alerta alerta-ok">✅ <?php echo htmlspecialchars(urldecode($_GET['msg'] ?? '¡Mascota registrada!')); ?></div>
+                    <?php else: ?>
+                        <div class="alerta alerta-err">❌ <?php echo htmlspecialchars(urldecode($_GET['msg'] ?? 'Ocurrió un error.')); ?></div>
+                    <?php endif; ?>
+                <?php endif; ?>
+
+                <form class="form-mascota" action="php/agregar_mascota.php" method="POST" enctype="multipart/form-data">
+
+                    <label for="nombre">Nombre de la Mascota</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej: Max" required>
+
+                    <label for="edad">Edad (años)</label>
+                    <input type="number" id="edad" name="edad" placeholder="Ej: 3" min="0" max="30" required>
+
+                    <label for="raza">Raza</label>
+                    <input type="text" id="raza" name="raza" placeholder="Ej: Labrador">
+
+                    <label for="sexo">Sexo</label>
+                    <select id="sexo" name="sexo" required>
+                        <option value="">-- Selecciona --</option>
+                        <option value="Macho">Macho</option>
+                        <option value="Hembra">Hembra</option>
+                    </select>
+
+                    <label for="descripcion">Descripción</label>
+                    <textarea id="descripcion" name="descripcion" placeholder="Describe la personalidad y características de la mascota..."></textarea>
+
+                    <label for="imagen">Foto de la Mascota</label>
+                    <input type="file" id="imagen" name="imagen" accept=".jpg,.jpeg,.png,.gif" required>
+                    <img id="preview-img" src="#" alt="Vista previa">
+
+                    <label for="fecha_ingreso">Fecha de Ingreso</label>
+                    <input type="date" id="fecha_ingreso" name="fecha_ingreso" required>
+
+                    <button type="submit">Guardar Mascota</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 Adopta una Mascota. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Vista previa de la imagen
+        document.getElementById('imagen').addEventListener('change', function () {
+            var file = this.files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var img = document.getElementById('preview-img');
+                    img.src = e.target.result;
+                    img.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+
+</body>
+</html>
